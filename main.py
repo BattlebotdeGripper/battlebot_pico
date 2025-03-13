@@ -8,13 +8,13 @@ class Control:
         self.receiver_init = receiver_init
         self.drive = drive
         self.gripper = gripper
-        
+            
     def run(self):
         while True:
-            serial_data = self.receiver_init.receive()
+            serial_data = self.receiver_init.receive()  
             if serial_data:
                 try:
-                    wheel_a, wheel_b, gripper_value = serial_data
+                    wheel_a, wheel_b, gripper_value = map(int, serial_data.split(','))
                     self.drive.run(wheel_a, wheel_b)
                     self.gripper.run(gripper_value)
                 except ValueError:
@@ -24,7 +24,7 @@ class Control:
 if __name__ == "__main__":
     receiver_init = Receiver_init()
     drive = Drive()
-    gripper = Gripper(18)
+    gripper = Gripper()
     control = Control(receiver_init, drive, gripper)
     
     try:         

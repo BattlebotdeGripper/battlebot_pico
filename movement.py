@@ -6,12 +6,12 @@ class Movement:
         self.neutral = 1500
         self.max_duty = 2000
         self.esc = [PWM(Pin(pin)) for pin in pins] 
-        self.setup_esc()
+        self.setup_and_stop_esc()
 
     def _us_to_duty(self, us):
         return int((us * 65535) / 20000)  
 
-    def setup_esc(self):
+    def setup_and_stop_esc(self):
         for esc in self.esc:
             esc.freq(50)
             esc.duty_u16(self._us_to_duty(self.neutral))

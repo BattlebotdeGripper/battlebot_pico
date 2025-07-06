@@ -2,7 +2,8 @@
 
 ## 📄 Overzicht
 Deze setup maakt het mogelijk om:
-- Een servo aan te sturen.
+- Een servo voor de grijparm aan te sturen.
+- 2x een motor aansturen.
 - CAN-berichten van de **Raspberry Pi 5** te ontvangen via de **CAN-bus** op de **Raspberry Pi Pico 2**.
 
 ---
